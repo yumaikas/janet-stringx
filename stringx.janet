@@ -8,6 +8,18 @@
         (buffer/blit it str 0)
         (string it)))
 
+
+(def- ws-pat (peg/compile ~{ :main (<- :s*) }))
+(defn empty-or-whitespace? [str]
+  "Is this string null or whitespace?"
+  (unless str (break true))
+  (when (empty? str) (break true))
+
+  (def ws-str (peg/match ws-pat (string str)))
+  (match ws-str 
+    @[m] (= str m)
+    _ false))
+
 (defn pad-left 
   "Left-pads a string so that it has at least len chars. fill should be a single char string"
   [str len &opt fill]
