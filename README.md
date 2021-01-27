@@ -2,7 +2,7 @@
 
 ## Overview
 
-This library provides some string utlity functions for Janet, and will be added to as I find missing things that I have the need for
+This library provides some string utlity functions for Janet, and will be added to as useful missing functionality is discovered. Pull Requests are welcome!
 
 ## Usage
 
