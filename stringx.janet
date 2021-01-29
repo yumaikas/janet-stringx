@@ -20,6 +20,13 @@
     @[m] (= str m)
     _ false))
 
+(defn replace [str &keys { :patt patt :with subst }]
+  (unless (bytes? patt)
+    (error "A pattern is required!"))
+  (unless (bytes? subst)
+    (error "A substitution is required!"))
+  (string/replace patt subst str))
+
 (defn pad-left 
   "Left-pads a string so that it has at least len chars. fill should be a single char string"
   [str len &opt fill]

@@ -21,3 +21,7 @@
 
   (assert-equal false (str/empty-or-whitespace? @"  .\r\t\n"))
   (assert-equal false (str/empty-or-whitespace? "This is a string...")))
+(deftest replace-described 
+  (assert-equal "BAB" (str/replace ".A." :patt "." :with "B")))
+(deftest replace-described-buffers 
+  (assert-equal "BAB" (str/replace @".A." :patt @"." :with @"B")))
