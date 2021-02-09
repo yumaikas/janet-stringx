@@ -10,7 +10,7 @@
 
 
 (def- ws-pat (peg/compile ~{ :main (<- :s*) }))
-(defn empty-or-whitespace? [str]
+(defn blank? [str]
   "Is this string null or whitespace?"
   (unless str (break true))
   (when (empty? str) (break true))

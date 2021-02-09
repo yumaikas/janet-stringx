@@ -14,13 +14,13 @@
     (assert-equal (str/replace-pairs ["&" "-" "|" "-"] "a&b|c") "a-b-c"))
 
 (deftest empty-or-whitepace
-  (assert-equal true (str/empty-or-whitespace? "  \t"))
-  (assert-equal true (str/empty-or-whitespace? ""))
-  (assert-equal true (str/empty-or-whitespace? @""))
-  (assert-equal true (str/empty-or-whitespace? @"  \r\t\n"))
+  (assert-equal true (str/blank? "  \t"))
+  (assert-equal true (str/blank? ""))
+  (assert-equal true (str/blank? @""))
+  (assert-equal true (str/blank? @"  \r\t\n"))
 
-  (assert-equal false (str/empty-or-whitespace? @"  .\r\t\n"))
-  (assert-equal false (str/empty-or-whitespace? "This is a string...")))
+  (assert-equal false (str/blank? @"  .\r\t\n"))
+  (assert-equal false (str/blank? "This is a string...")))
 (deftest replace-described 
   (assert-equal "BAB" (str/replace ".A." :patt "." :with "B")))
 (deftest replace-described-buffers 
